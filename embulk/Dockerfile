@@ -10,7 +10,10 @@ RUN apt-get update && apt-get install -y curl \
     && embulk gem install \
               embulk-input-postgresql embulk-output-postgresql \
 	      embulk-input-s3 embulk-output-s3 \
-	      embulk-filter-column  embulk-filter-distinct embulk-filter-unpivot
+	      embulk-input-jdbc embulk-output-jdbc \
+	      embulk-filter-column embulk-filter-row embulk-filter-distinct \
+	      embulk-filter-icu4j embulk-filter-gsub embulk-filter-unpivot \
+	      embulk-parser-none
 WORKDIR /work
 
 #ENTRYPOINT ["/bin/sh", "-c", "java -jar ${PATH_TO_EMBULK}/embulk"]

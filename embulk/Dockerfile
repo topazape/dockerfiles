@@ -12,9 +12,8 @@ RUN apt-get update && apt-get install -y curl \
 	      embulk-input-s3 embulk-output-s3 \
 	      embulk-input-jdbc embulk-output-jdbc \
 	      embulk-filter-column embulk-filter-row embulk-filter-distinct \
-	      embulk-filter-icu4j embulk-filter-gsub embulk-filter-unpivot \
-	      embulk-parser-none
+	      embulk-filter-icu4j embulk-filter-gsub embulk-filter-ruby_proc \
+	      embulk-filter-unpivot embulk-parser-none
 WORKDIR /work
 
-#ENTRYPOINT ["/bin/sh", "-c", "java -jar ${PATH_TO_EMBULK}/embulk"]
 ENTRYPOINT ["java", "-jar", "/opt/embulk/embulk"]

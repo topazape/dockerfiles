@@ -2,8 +2,10 @@ FROM openjdk:8-slim
 
 ENV LANG=C.UTF-8 PATH_TO_EMBULK=/opt/embulk
 ENV PATH=${PATH_TO_EMBULK}:${PATH}
+ENV USER=embulk
 
-RUN apt-get update && apt-get install -y curl \
+RUN useradd -m ${USER} \
+    && apt-get update && apt-get install -y curl \
     && mkdir -p ${PATH_TO_EMBULK} \
     && curl --create-dirs -o ${PATH_TO_EMBULK}/embulk -L "https://github.com/embulk/embulk/releases/download/v0.9.24/embulk-0.9.24.jar" \
     && chmod +x ${PATH_TO_EMBULK}/embulk \
@@ -16,5 +18,6 @@ RUN apt-get update && apt-get install -y curl \
 	      embulk-filter-unpivot embulk-filter-add_time \
 	      embulk-parser-none
 WORKDIR /work
-
-ENTRYPOINT ["java", "-jar", "/opt/embulk/embulk"]
+COPY entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["java", "-jar", "/opt/embulk/embulk"]

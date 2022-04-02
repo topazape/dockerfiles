@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y curl \
 	      embulk-input-jdbc embulk-output-jdbc \
 	      embulk-filter-column embulk-filter-row embulk-filter-distinct \
 	      embulk-filter-icu4j embulk-filter-gsub embulk-filter-ruby_proc \
-	      embulk-filter-unpivot embulk-parser-none
+	      embulk-filter-unpivot embulk-filter-add_time \
+	      embulk-parser-none
 WORKDIR /work
 
 ENTRYPOINT ["java", "-jar", "/opt/embulk/embulk"]

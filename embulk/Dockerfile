@@ -20,4 +20,3 @@ RUN useradd -m ${USER} \
 WORKDIR /work
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["java", "-jar", "/opt/embulk/embulk"]

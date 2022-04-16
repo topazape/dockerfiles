@@ -17,5 +17,5 @@ services:
     ports:
       - 8888:8888
     volumes:
-      - $PWD/workspace:/workspace
-    working_dir: /workspace
+      - $PWD/workspace:/home/kaggler/workspace
+    working_dir: /home/kaggler/workspace

@@ -7,7 +7,7 @@ RUN    add-apt-repository ppa:neovim-ppa/stable \
     && apt-get update \
     && apt-get -y install neovim \
     && jupyter lab build --dev-build=False --minimize=False \
-    && pip install timm signate
+    && pip install -U timm wandb sweetviz
 
 RUN su -c "git clone https://github.com/topazape/dotfiles.git /home/${USER}/dotfiles && cd /home/${USER}/dotfiles && make && mkdir ~/workspace" ${USER}
 

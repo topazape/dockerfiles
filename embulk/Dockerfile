@@ -14,11 +14,11 @@ RUN su -c 'embulk gem install \
 		embulk-input-s3 embulk-output-s3 \
 		embulk-input-jdbc embulk-output-jdbc \
 		embulk-decoder-command \
+		embulk-parser-none embulk-parser-poi_excel \
 		embulk-filter-column embulk-filter-row embulk-filter-distinct \
 		embulk-filter-icu4j embulk-filter-gsub embulk-filter-ruby_proc \
 		embulk-filter-unpivot embulk-filter-add_time embulk-filter-timestamp_format \
-		embulk-filter-null_string embulk-filter-insert embulk-filter-typecast \
-		embulk-parser-none' ${USER}
+		embulk-filter-null_string embulk-filter-insert embulk-filter-typecast' ${USER}
 
 WORKDIR /work
 COPY entrypoint.sh /

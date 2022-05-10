@@ -3,8 +3,7 @@ FROM gcr.io/kaggle-gpu-images/python:v114
 ENV LANG=C.UTF-8
 ENV USER=jupyter
 
-RUN jupyter lab build --dev-build=False --minimize=False \
-    && pip install -U timm wandb sweetviz
+RUN pip install -U timm wandb sweetviz && jupyter lab build --dev-build=False --minimize=False
 
 RUN su -c "git clone https://github.com/topazape/dotfiles.git /home/${USER}/dotfiles && cd /home/${USER}/dotfiles && make && mkdir ~/workspace" ${USER}
 

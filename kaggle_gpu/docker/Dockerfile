@@ -1,12 +1,9 @@
-FROM gcr.io/kaggle-gpu-images/python:v113
+FROM gcr.io/kaggle-gpu-images/python:v114
 
 ENV LANG=C.UTF-8
 ENV USER=jupyter
 
-RUN    add-apt-repository ppa:neovim-ppa/stable \
-    && apt-get update \
-    && apt-get -y install neovim \
-    && jupyter lab build --dev-build=False --minimize=False \
+RUN jupyter lab build --dev-build=False --minimize=False \
     && pip install -U timm wandb sweetviz
 
 RUN su -c "git clone https://github.com/topazape/dotfiles.git /home/${USER}/dotfiles && cd /home/${USER}/dotfiles && make && mkdir ~/workspace" ${USER}

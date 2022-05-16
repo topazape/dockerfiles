@@ -1,4 +1,4 @@
-FROM gcr.io/kaggle-gpu-images/python:v114
+FROM gcr.io/kaggle-gpu-images/python:v115
 
 ENV LANG=C.UTF-8
 ENV USER=jupyter

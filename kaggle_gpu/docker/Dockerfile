@@ -3,7 +3,7 @@ FROM gcr.io/kaggle-gpu-images/python:v116
 ENV LANG=C.UTF-8
 ENV USER=jupyter
 
-RUN apt update && apt instsall -y fonts-noto-cjk fonts-noto-cjk-extra fonts-ipaexfont
+RUN apt update && apt install -y fonts-noto-cjk fonts-noto-cjk-extra fonts-ipaexfont
 RUN pip install -U timm wandb sweetviz && jupyter lab build --dev-build=False --minimize=False
 RUN su -c "mkdir ~/workspace" ${USER}
 

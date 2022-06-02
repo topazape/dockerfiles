@@ -11,6 +11,7 @@ RUN useradd -m ${USER} \
     && chmod +x ${PATH_TO_EMBULK}/embulk
 RUN su -c 'embulk gem install \
 		embulk-input-postgresql embulk-output-postgresql \
+		embulk-output-sqlite3 \
 		embulk-input-s3 embulk-output-s3 \
 		embulk-input-jdbc embulk-output-jdbc \
 		embulk-decoder-command \

@@ -3,7 +3,7 @@ version: "3"
 services:
   r:
     image: rocker/tidyverse:latest
-    container_name: R-lang-env
+    container_name: Rlang-env
     ports:
       - 8787:8787
     environment:

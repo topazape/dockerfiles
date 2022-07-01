@@ -13,7 +13,7 @@ services:
         - ftp_proxy=$ftp_proxy
         - NO_PROXY=$NO_PROXY
         - no_proxy=$no_proxy
-    shm_size: "16gb"
+    shm_size: "24gb"
     container_name: kaggle
     deploy:
       resources:

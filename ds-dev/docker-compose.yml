@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  kaggle:
+  jupyterlab:
     build:
       context: ./docker
       args:
@@ -14,7 +14,6 @@ services:
         - NO_PROXY=$NO_PROXY
         - no_proxy=$no_proxy
     shm_size: "24gb"
-    container_name: kaggle
     deploy:
       resources:
         reservations:
@@ -35,5 +34,5 @@ services:
     ports:
       - 8888:8888
     volumes:
-      - $PWD/workspace:/home/kaggler/workspace
-    working_dir: /home/kaggler/workspace
+      - $PWD/workspace:/home/jupyter/workspace
+    working_dir: /home/jupyter/workspace

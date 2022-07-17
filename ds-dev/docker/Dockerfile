@@ -5,7 +5,8 @@ ENV USER=jupyter
 
 RUN useradd -m ${USER} && su -c "mkdir /home/${USER}/workspace"
 RUN apt-get update && \
-	apt-get install -y build-essential curl python3 python3-pip \
+	apt-get install -y build-essential gfortran libopenblas-dev \
+		curl file less git graphviz python3 python3-pip \
 		fonts-noto-cjk fonts-noto-cjk-extra fonts-ipaexfont
 
 # jupyter-lab with some extensions
@@ -23,7 +24,8 @@ RUN pip install --no-cache-dir \
 	numpy \
 	scipy \
 	pandas \
-	"dask[complete]"
+	"dask[complete]" \
+	opencv-python
 
 # machine learning
 RUN pip install --no-cache-dir \
@@ -41,7 +43,8 @@ RUN pip install --no-cache-dir \
 	seaborn \
 	plotly \
 	pandas_profiling \
-	sweetviz
+	sweetviz \
+	"dtreeviz[lightgbm]"
 
 # utility
 RUN pip install --no-cache-dir \
@@ -54,7 +57,6 @@ RUN pip install --no-cache-dir \
 # ppl
 RUN pip install --no-cache-dir \
 	pymc3
-
 
 WORKDIR /home/${USER}/workspace
 COPY entrypoint.sh /

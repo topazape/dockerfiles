@@ -19,43 +19,38 @@ RUN pip install --no-cache-dir \
 RUN pip install --no-cache-dir \
 	torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
 
-# base packages
 RUN pip install --no-cache-dir \
+	# base packages
 	numpy \
 	scipy \
 	pandas \
 	"dask[complete]" \
-	opencv-python
-
-# machine learning
-RUN pip install --no-cache-dir \
+	opencv-python \
+	# machine learning
 	scikit-learn \
 	lightgbm \
 	xgboost \
 	catboost \
 	imbalanced-learn \
 	umap \
-	shap
-
-# data visualization
-RUN pip install --no-cache-dir \
+	shap \
+	# deep learning
+	pytorch-lightning \
+	tensorboard \
+	# data visualization
 	matplotlib \
 	seaborn \
 	plotly \
 	pandas_profiling \
 	sweetviz \
-	"dtreeviz[lightgbm]"
-
-# utility
-RUN pip install --no-cache-dir \
+	"dtreeviz[lightgbm]" \
+	# utility
 	timm \
 	wandb \
 	openpyxl \
 	sqlalchemy \
-	psycopg2-binary
-
-# ppl
-RUN pip install --no-cache-dir \
+	psycopg2-binary \
+	# ppl
 	pymc3
 
 WORKDIR /home/${USER}/workspace

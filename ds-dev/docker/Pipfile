@@ -1,0 +1,57 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+# jupyter lab
+jupyterlab = "*"
+jupyterlab-code-formatter = "*"
+black = "*"
+isort = "*"
+jupyterlab_widgets = "*"
+ipywidgets = "*"
+# base packages
+numpy = "*"
+scipy = "*"
+pandas = "*"
+dask = {extras = ["complete"], version = "*"}
+opencv-python = "*"
+# machine learning
+scikit-learn = "*"
+lightgbm = "*"
+xgboost = "*"
+catboost = "*"
+imbalanced-learn = "*"
+umap = "*"
+shap = "*"
+optuna = "*"
+# deep learning
+pytorch-lightning = "*"
+tensorboard = "*"
+# data visualization
+matplotlib = "*"
+seaborn = "*"
+plotly = "*"
+pandas_profiling = "*"
+sweetviz = "*"
+dtreeviz = {extras = ["lightgbm"], version= "*"}
+# utility
+timm = "*"
+wandb = "*"
+openpyxl = "*"
+sqlalchemy = "*"
+psycopg2-binary = "*"
+# ppl
+pymc3 = "*"
+# pytorch
+torch = {file = "https://download.pytorch.org/whl/cu116/torch-1.12.0%2Bcu116-cp310-cp310-linux_x86_64.whl"}
+torchvision = "*"
+torchaudio = "*"
+torchtext = "*"
+pytorch-tabnet = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
